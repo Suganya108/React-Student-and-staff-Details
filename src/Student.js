@@ -16,7 +16,8 @@ class Student extends Component {
     }
 
     componentDidMount() {
-        const url = "http://localhost:5000/Students/";
+        //const url = "http://localhost:5000/Students/";
+        const url = "https://student-staff-details.herokuapp.com/Students/";
         fetch(url)
             .then((response) => response.json())
             .then((result) => {
@@ -45,8 +46,8 @@ class Student extends Component {
                         </thead>
                         <tbody>
                             {students.map((student) => (
-                                <tr key={student.id}>
-                                    <td>{student.id}</td>
+                                <tr key={student._id}>
+                                    <td>{student._id}</td>
                                     <td>{student.name}</td>
                                     <td>{student.email}</td>
                                     <td>{student.staff_id}</td>
