@@ -16,7 +16,8 @@ class Staff extends Component {
     }
 
     componentDidMount() {
-        const url = "http://localhost:5000/GetAllStaff/";
+        //const url = "http://localhost:5000/GetAllStaff/";
+        const url = "https://student-staff-details.herokuapp.com/GetAllStaff/"
         fetch(url)
             .then((response) => response.json())
             .then((result) => {
@@ -38,6 +39,7 @@ class Staff extends Component {
                         <thead>
                             <tr>
                                 <th>#</th>
+                                <th>ID</th>
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Student Count</th>
@@ -45,7 +47,8 @@ class Staff extends Component {
                         </thead>
                         <tbody>
                             {staffs.map((staff) => (
-                                <tr key={staff.id}>
+                                <tr key={staff._id}>
+                                    <td>{staff._id}</td>
                                     <td>{staff.id}</td>
                                     <td>{staff.name}</td>
                                     <td>{staff.email}</td>
